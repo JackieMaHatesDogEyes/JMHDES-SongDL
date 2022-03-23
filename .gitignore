@@ -1,0 +1,6 @@
+run.bat
+cmd.exe
+*.mp3
+*.mp4
+bin/
+__pycache__/
