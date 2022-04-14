@@ -1,6 +1,6 @@
 import urllib.request
 import re
-import time.sleep
+from time import sleep
 
 version = "0.0.2" #Current Application Version
 versionURL = "https://raw.githubusercontent.com/VicCodezz/JMHDES-SongDL/master/VERSION.txt" #Github URL of Latest Version
@@ -8,14 +8,13 @@ urllib.request.urlretrieve(versionURL, "v") #Rerieves Latest Version
 openV = open("v", "r").read() #Reads Data
 if openV != version: #Quits Application if not Newest Version
     print("Please Download New Version...")
-    time.sleep(5)
+    sleep(5)
     quit()
 
 try: #Tries To Open songs.txt
     inp = open("songs.txt", "r")
     songs = inp.readlines()
 except FileNotFoundError: #Quits if unable to open songs.txt
-    from time import sleep
     print("No songs.txt file found.\nClosing in 10 seconds...")
     sleep(10)
     quit()
