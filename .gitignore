@@ -4,3 +4,5 @@ cmd.exe
 *.mp4
 bin/
 __pycache__/
+songs.txt
+songs_old.txt
