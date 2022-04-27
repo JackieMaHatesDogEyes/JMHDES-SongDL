@@ -7,3 +7,5 @@ __pycache__/
 songs.txt
 songs_old.txt
 v
+config.json
+*.part
