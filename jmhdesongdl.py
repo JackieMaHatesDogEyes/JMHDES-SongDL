@@ -3,7 +3,7 @@ import urllib.request
 import re
 from time import sleep
 
-version = "0.0.2" #Current Application Version
+version = "0.0.3" #Current Application Version
 versionURL = "https://raw.githubusercontent.com/VicCodezz/JMHDES-SongDL/master/VERSION.txt" #Github URL of Latest Version
 urllib.request.urlretrieve(versionURL, "v") #Rerieves Latest Version
 openV = open("v", "r").read() #Reads Data
