@@ -1,6 +1,7 @@
 import youtube_dl
 import urllib.request
 import re
+from pydub import AudioSegment
 from time import sleep
 
 version = "0.0.3" #Current Application Version
@@ -46,7 +47,10 @@ def removeIllegal(illegal):
     illegal = illegal.replace("=", " ")
     return illegal
 
-
+m4a = False
+inp = input("Keep MP3 Format? (y/n)")
+if inp == "N" or "n":
+    m4a = True
 
 for i in range(0, len(songs)): #For Loop
     songName = songs[i] #Gets Current Song Name
@@ -77,3 +81,7 @@ for i in range(0, len(songs)): #For Loop
     with youtube_dl.YoutubeDL(o) as ydl:
         ydl.download([vidinfo['webpage_url']])
     
+    if m4a:
+        audioFile = AudioSegment.from_file(fname, format="m4a")
+        audioFile.export(f"{vidinfo['title']}.m4a", format="m4a")
+        print("Conversion Finished")
