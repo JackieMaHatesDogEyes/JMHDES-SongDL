@@ -1,12 +1,17 @@
 run.bat
+build.sh
 cmd.exe
 *.mp3
 *.mp4
 bin/
 __pycache__/
+build/
+dist/
 songs.txt
 songs_old.txt
 v
 config.json
 *.part
 *.swp
+*.AppImage
+*.spec
