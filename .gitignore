@@ -15,3 +15,4 @@ config.json
 *.swp
 *.AppImage
 *.spec
+.DS_Store
