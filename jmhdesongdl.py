@@ -2,8 +2,9 @@ import youtube_dl
 import urllib.request
 import re
 from time import sleep
+import os
 
-version = "0.0.3" #Current Application Version
+version = "0.0.4" #Current Application Version
 versionURL = "https://raw.githubusercontent.com/VicCodezz/JMHDES-SongDL/master/VERSION.txt" #Github URL of Latest Version
 urllib.request.urlretrieve(versionURL, "v") #Rerieves Latest Version
 openV = open("v", "r").read() #Reads Data
@@ -11,6 +12,8 @@ if openV != version: #Quits Application if not Newest Version
     print("Please Download New Version...")
     sleep(5)
     quit()
+
+os.remove("v") #Get rid of temporary Version Check file
 
 try: #Tries To Open songs.txt
     inp = open("songs.txt", "r")
@@ -36,7 +39,7 @@ def removeIllegal(illegal):
     illegal = illegal.replace("?", " ")
     illegal = illegal.replace("$", "S") #Replace Dollar Sign with "S" (Used primarily for Rappers using a DOllar Sign in place of an 'S'
     illegal = illegal.replace("!", " ")
-    illegal = illegal.replace("'", " ")
+    illegal = illegal.replace("'", "") #Replace Apostrophe with Nothing
     illegal = illegal.replace('"', " ")
     illegal = illegal.replace(":", " ")
     illegal = illegal.replace("@", " ")
@@ -66,7 +69,7 @@ for i in range(0, len(songs)): #For Loop
         url = vidurl,download=False
     )
 
-    fname = f"{vidinfo['title']}.mp3"
+    fname = f"{songName}.mp3"
     o ={
 
         'format':'bestaudio/best',
