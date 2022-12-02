@@ -1,10 +1,10 @@
-import youtube_dl
+from yt_dlp import YoutubeDL
 import urllib.request
 import re
 from time import sleep
 import os
 
-version = "0.0.4" #Current Application Version
+version = "0.1.0" #Current Application Version
 versionURL = "https://raw.githubusercontent.com/VicCodezz/JMHDES-SongDL/master/VERSION.txt" #Github URL of Latest Version
 urllib.request.urlretrieve(versionURL, "v") #Rerieves Latest Version
 openV = open("v", "r").read() #Reads Data
@@ -65,7 +65,7 @@ for i in range(0, len(songs)): #For Loop
     del(html)
     del(urlName)
 
-    vidinfo = youtube_dl.YoutubeDL().extract_info(
+    vidinfo = YoutubeDL().extract_info(
         url = vidurl,download=False
     )
 
@@ -77,6 +77,6 @@ for i in range(0, len(songs)): #For Loop
         'outtmpl':fname
     }
 
-    with youtube_dl.YoutubeDL(o) as ydl:
+    with YoutubeDL(o) as ydl:
         ydl.download([vidinfo['webpage_url']])
     
