@@ -34,7 +34,7 @@ def removeIllegal(illegal):
     illegal = illegal.replace(">", " ")
     illegal = illegal.replace("*", " ")
     illegal = illegal.replace("?", " ")
-    illegal = illegal.replace("$", "S")
+    illegal = illegal.replace("$", "S") #Replace Dollar Sign with "S" (Used primarily for Rappers using a DOllar Sign in place of an 'S'
     illegal = illegal.replace("!", " ")
     illegal = illegal.replace("'", " ")
     illegal = illegal.replace('"', " ")
