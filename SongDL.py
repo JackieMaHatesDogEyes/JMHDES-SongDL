@@ -46,7 +46,7 @@ def removeIllegal(illegal):
     return illegal
 
 
-def Download(f):
+def Download(f, extension=".mp3"):
     try: #Tries To Open songs.txt
         inp = open(f, "r")
         songs = inp.readlines()
@@ -86,7 +86,7 @@ def Download(f):
         
         print("Converting with MoviePy")
         FILETOCONVERT = AudioFileClip(fname)
-        FILETOCONVERT.write_audiofile((songName + ".mp3"))
+        FILETOCONVERT.write_audiofile((songName + extension))
         FILETOCONVERT.close()
         os.remove(fname)
 
